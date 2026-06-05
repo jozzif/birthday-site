@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sophia's Birthday</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<div class="container">
+
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
+
+    <!-- SCREEN 1 -->
+
+    <section class="screen active" id="screen1">
+        <h1 class="gold typing">
+            Welcome to the Birthday Security System 🎂
+        </h1>
+
+        <input
+            type="text"
+            id="nameInput"
+            placeholder="What is your name?"
+        >
+
+        <button onclick="goToScreen2()">
+            Continue
+        </button>
+    </section>
+
+    <!-- SCREEN 2 -->
+
+    <section class="screen" id="screen2">
+
+        <img
+            src="{{ url_for('static', filename='detective.png') }}"
+            class="detective"
+            alt="Detective"
+        >
+
+        <h2 id="detectiveText"></h2>
+
+        <input
+            type="text"
+            id="senderInput"
+            placeholder="Who sent you this?"
+        >
+
+        <button onclick="checkSender()">
+            Submit
+        </button>
+
+        <p id="errorMessage"></p>
+
+    </section>
+
+    <!-- SCREEN 3 -->
+
+    <section class="screen" id="screen3">
+
+        <h1>🎉 ACCESS GRANTED 🎉</h1>
+
+        <h2>Hee Hee! You got it right!</h2>
+
+        <button onclick="goToScreen4()">
+            Continue
+        </button>
+
+    </section>
+
+    <!-- SCREEN 4 -->
+
+    <section class="screen" id="screen4">
+
+        <h2 id="ageQuestion"></h2>
+
+        <input
+            type="number"
+            id="ageInput"
+            placeholder="Enter your age"
+        >
+
+        <button onclick="submitAge()">
+            Continue
+        </button>
+
+    </section>
+
+    <!-- SCREEN 5 -->
+
+    <section class="screen" id="screen5">
+
+        <h1>🎂 HAPPY BIRTHDAY SOPHIA 🎂</h1>
+
+        <div class="celebration">
+            🎉 🎈 🎁 🍰 ✨
+        </div>
+
+        <h2>Awwww!</h2>
+
+        <div id="birthdayMessage"></div>
+
+        <button onclick="claimCake()">
+            🍰 Claim Cake
+        </button>
+
+        <p id="cakeResult"></p>
+
+        <button id="surpriseBtn" onclick="showSurprise()">
+            🎁 One Last Surprise
+        </button>
+
+        <div id="surpriseBox"></div>
+
+    </section>
+
+</div>
+
+<audio id="heeheeAudio" src="{{ url_for('static', filename='heehee.mp3') }}"></audio>
+
+<audio id="awwwAudio" src="{{ url_for('static', filename='awwww.mp3') }}"></audio>
+
+<audio id="greenAudio" src="{{ url_for('static', filename='green_giant.mp3') }}"></audio>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+</html>
